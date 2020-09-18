@@ -21,7 +21,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/login", login)
+      .post("http://localhost:5000/api/login", login)
       .then((res) => {
         console.log(res.data.payload);
         localStorage.setItem("token", res.data.payload);
