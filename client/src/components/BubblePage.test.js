@@ -1,11 +1,11 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import BubblePage from "./BubblePage";
-import { colorsAPITest as mockData } from "../colorsAPITest";
+import { fetchColor as mockAPI } from "../fetchColor";
 
-jest.mock("../colorsAPITest");
+jest.mock("../fetchColor");
 
-const bubbleData = [
+const colorData = [
   {
     color: "aliceblue",
     code: {
@@ -32,5 +32,5 @@ const bubbleData = [
 test("Fetches data and renders the bubbles", () => {
   // Finish this test
   render(<BubblePage />);
-  mockData.mockResolvedValueOnce(bubbleData);
+  // mockAPI.mockResolvedValueOnce(colorData);
 });
