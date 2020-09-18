@@ -33,7 +33,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div style={{ width: "20%" }}>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <p>

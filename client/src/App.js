@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import PrivateRoute from "./components/PrivateRoute";
 import Login from "./components/Login";
@@ -15,15 +15,9 @@ function App() {
           Build a PrivateRoute component that will 
           display BubblePage when you're authenticated 
         */}
-        <div>
-          <Link to="/login">Login</Link>
-        </div>
-        <div>
-          <Link to="/colors">Colors</Link>
-        </div>
         <Switch>
           <PrivateRoute exact path="/colors" component={BubblePage} />
-          <Route path="/login" component={Login} />
+          <Route exact path="/login" component={Login} />
         </Switch>
       </div>
     </Router>
