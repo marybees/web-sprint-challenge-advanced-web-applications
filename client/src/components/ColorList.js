@@ -25,11 +25,14 @@ const ColorList = ({ colors, updateColors }) => {
     // think about where will you get the id from...
     // where is is saved right now?
     axiosWithAuth()
-      .put(`/api/colors/${colors.id}`, colors)
+      .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
       .then((res) => {
-        console.log(res);
-        updateColors(res.data);
-        history.push(`/colors/${colors.id}`);
+        axiosWithAuth()
+          .get("/api/colors")
+          .then((res) => {
+            console.log(res);
+            updateColors(res.data);
+          });
       })
       .catch((err) => console.log(err));
   };
@@ -57,7 +60,11 @@ const ColorList = ({ colors, updateColors }) => {
       <p>colors</p>
       <ul>
         {colors.map((color) => (
-          <li key={color.color} onClick={() => editColor(color)}>
+          <li
+            data-testid="colors"
+            key={color.color}
+            onClick={() => editColor(color)}
+          >
             <span>
               <span
                 className="delete"
